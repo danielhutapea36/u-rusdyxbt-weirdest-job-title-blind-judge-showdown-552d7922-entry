@@ -40,6 +40,8 @@ def build_title() -> str:
         raise ValueError("title must not be only white space")
     if title != title.strip():
         raise ValueError("title must not start or end with white space")
+    if any(ch in "\n\r" for ch in title):
+        raise ValueError("title must be a single line")
     return title
 
 
